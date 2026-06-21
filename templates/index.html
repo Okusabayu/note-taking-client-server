@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Aplikasi Note Taking - Tugas Akhir Client Server Programming">
+    <title>Note Taking App</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <h1>📝 Note Taking App</h1>
+            <p class="subtitle">Tugas Akhir — Client Server Programming</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+
+        <!-- Form Section -->
+        <section class="card form-card">
+            <h2 class="card-title">Tambah Catatan Baru</h2>
+            <form id="noteForm">
+                <div class="form-group">
+                    <label for="title">Judul Catatan</label>
+                    <input 
+                        type="text" 
+                        id="title" 
+                        name="title" 
+                        placeholder="Masukkan judul catatan..." 
+                        required
+                    >
+                </div>
+                <div class="form-group">
+                    <label for="content">Isi Catatan</label>
+                    <textarea 
+                        id="content" 
+                        name="content" 
+                        rows="4" 
+                        placeholder="Tulis isi catatan di sini..." 
+                        required
+                    ></textarea>
+                </div>
+                <button type="submit" id="submitBtn" class="btn btn-primary">
+                    <span class="btn-icon">＋</span> Tambah Catatan
+                </button>
+                <button type="button" id="cancelBtn" class="btn btn-secondary" style="display: none;">
+                    Batal
+                </button>
+            </form>
+        </section>
+
+        <!-- Notes List Section -->
+        <section class="card">
+            <h2 class="card-title">Daftar Catatan</h2>
+            <div id="notesList" class="notes-list">
+                <div class="loading">Memuat catatan...</div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast"></div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Note Taking App — Flask &amp; SQLite</p>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
